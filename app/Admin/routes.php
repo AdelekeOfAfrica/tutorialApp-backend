@@ -1,5 +1,6 @@
 <?php
 
+use App\Admin\Controllers\CourseController;
 use Illuminate\Routing\Router;
 use App\Admin\Controllers\UserController;
 use App\Admin\Controllers\CourseTypeController;
@@ -17,5 +18,6 @@ Route::group([
     $router->get('/', 'HomeController@index')->name('home');
     $router->resource('/users', UserController::class);
     $router->resource('/course-type',CourseTypeController::class);
+    $router->resource('/courses',CourseController::class);
 
 });

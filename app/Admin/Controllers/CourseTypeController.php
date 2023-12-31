@@ -15,6 +15,8 @@ class CourseTypeController extends AdminController
 {
     //
 
+    protected $title="Course Type";
+
    public function index(Content $content){ //this is more like request in laravel 
     $tree = new Tree(new CourseType); // this will show the result in menu and submenu format 
     return $content->header("Course Types")->body($tree);
