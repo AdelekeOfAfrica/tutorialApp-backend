@@ -26,6 +26,7 @@ Route::group(['namespace'=>'Api'], function(){
     //authentication  layer
     Route::group(['middleware'=>['auth:sanctum']], function(){
         Route::any('/courseList','CourseController@courseList');
+        Route::any('/courseDetail','CourseController@courseDetail');
     });
 });
 

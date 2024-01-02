@@ -19,4 +19,25 @@ class CourseController extends Controller
             "data"=>$result
         ],200);
     }
+
+    public function CourseDetail(Request $request){
+        $id = $request->id;
+
+    try{
+       $result = Course::where('id', '=', $id)->select('id','name','user_token','description','thumbnail','lesson_num','price','video_length')->first();
+
+       return response()->json([
+        'code'=>200,
+        'message'=>'CourseDetail fetched Successfully',
+        'data'=>$result
+       ],200);
+    }catch(\Throwable $e){
+        return response()->json([
+            'code'=>500,
+            'message'=>'There was an error fetching the course Details',
+            'data'=>$e->getMessage(),
+           ],500);
+    }
+
+    }
 }
